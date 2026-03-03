@@ -93,8 +93,8 @@ pub enum TokenType {
 #[derive(Debug)]
 pub struct SourceLocation<'a> {
     filename: &'a str,
-    line: usize,
-    column: usize,
+    pub(crate) line: usize,
+    pub(crate) column: usize,
 }
 
 impl<'r> SourceLocation<'r> {
