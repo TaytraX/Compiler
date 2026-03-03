@@ -249,7 +249,10 @@ impl<'a> Lexer<'a> {
                             self.advance(); // t
                             return self.make_token_auto(TokenType::AMP_MUT, LiteralValue::None);
                         }
-                        self.pos = saved_pos; // rollback
+                        // rollback
+                        self.pos = saved_pos;
+                        self.line = saved_line;
+                        self.column = saved_column;
                     }
                     self.make_token_auto(TokenType::AMP, LiteralValue::None)
                 }
