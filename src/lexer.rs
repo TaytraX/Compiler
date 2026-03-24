@@ -243,6 +243,8 @@ impl<'a> Lexer<'a> {
                     // Gérer &mut
                     if self.peek() == 'm' && self.peek_next() == 'u' {
                         let saved_pos = self.pos;
+                        let saved_line = self.line;
+                        let saved_column = self.column;
                         self.advance(); // m
                         self.advance(); // u
                         if self.peek() == 't' && !Self::is_alphanumeric(self.peek_next()) {
